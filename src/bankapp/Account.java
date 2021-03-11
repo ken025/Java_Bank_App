@@ -34,6 +34,14 @@ public abstract class Account implements IBaseRate {
         return lastTwoSSN + uniqueID + randNum;
   }
 
+  public void showInfo(){
+      System.out.println(
+              "Name: " + name +
+              "\nAccount Number: " + acctNumber +
+                      "\nBalance: $" + balance
+      );
+  }
+
 //    Constructor to set base properties and initialize the acct
 
 //    List methods: deposit, withdrawal, transfer...

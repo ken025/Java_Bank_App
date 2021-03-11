@@ -8,7 +8,22 @@ public class Checking extends Account{
     public Checking(String name, String sSn, double initDeposit){
         super(name, sSn, initDeposit);
         acctNumber = "1" + acctNumber;
-//        System.out.println("Account Number: " + this.acctNumber);
-//        System.out.println("Checking Account");
+        System.out.println("\nChecking Account");
+
+        setDebitCard();
+    }
+
+    private void setDebitCard(){
+        debitCardNum = (int) (Math.random() * Math.pow(10, 12));
+        debitCardPIN = (int) (Math.random() * Math.pow(10, 4));
+    }
+
+    public void showInfo() {
+        super.showInfo();
+        System.out.println(
+                "\nChecking Account Features: " +
+                        "\n Debit Card Number: " + debitCardNum +
+                        "\n Debit Card Pin: " + debitCardPIN
+        );
     }
 }

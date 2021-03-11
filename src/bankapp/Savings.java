@@ -13,6 +13,10 @@ public class Savings extends Account{
         setSafetyDepositBox();
     }
 
+    public void setRate() {
+        rate = getBaseRate() - .25;
+    }
+
     private void setSafetyDepositBox(){
 //                                                           10 by the factor of 3 = 3 digits
         safetyDepositBoxID = (int) (Math.random() * Math.pow(10, 3));

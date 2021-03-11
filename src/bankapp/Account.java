@@ -23,8 +23,11 @@ public abstract class Account implements IBaseRate {
 //  Setting account number
         index++;
         this.acctNumber = setAcctNumber();
-//        System.out.println("Account Number: " + this.acctNumber);
+
+        setRate();
     }
+
+    public abstract void setRate();
 
     private String setAcctNumber(){
         String lastTwoSSN = sSN.substring(sSN.length() - 2, sSN.length());
@@ -38,7 +41,8 @@ public abstract class Account implements IBaseRate {
       System.out.println(
               "Name: " + name +
               "\nAccount Number: " + acctNumber +
-                      "\nBalance: $" + balance
+                      "\nBalance: $" + balance +
+                      "\nRate: %" + rate
       );
   }
 

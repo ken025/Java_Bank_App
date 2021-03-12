@@ -2,8 +2,8 @@ package bankapp;
 
 public class Savings extends Account{
 //    List properties and methods specific to savings acct:
-    int safetyDepositBoxID;
-    int getSafetyDepositBoxKey;
+    private int safetyDepositBoxID;
+    private int getSafetyDepositBoxKey;
 
     public Savings(String name, String sSN, double initDeposit){
         super(name, sSN, initDeposit);

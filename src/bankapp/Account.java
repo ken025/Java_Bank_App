@@ -8,8 +8,9 @@ public abstract class Account implements IBaseRate {
     String sSN;
     double balance;
     static int index = 1000;
-    String acctNumber;
-    double rate;
+//    protected makes them available to child classes but hidden to the outside
+    protected String acctNumber;
+    protected double rate;
 
     public Account(String name, String sSN, double initDeposit){
         this.name = name;
@@ -27,7 +28,22 @@ public abstract class Account implements IBaseRate {
         setRate();
     }
 
+    private String setAcctNumber(){
+        String lastTwoSSN = sSN.substring(sSN.length() - 2, sSN.length());
+        int uniqueID = index;
+//                                              10 to the third power = 1000
+        int randNum = (int) (Math.random() * Math.pow(10, 3));
+        return lastTwoSSN + uniqueID + randNum;
+    }
+
     public abstract void setRate();
+
+    public void compound(){
+        double accruedInterest = (balance * (rate/100));
+        balance = balance + accruedInterest;
+        System.out.println("\nAccrued Interest: $" + accruedInterest);
+        printBalance();
+    }
 
     public void deposit(double amount){
         balance = balance + amount;
@@ -50,14 +66,6 @@ public abstract class Account implements IBaseRate {
     public void printBalance(){
         System.out.println("Your balance is now: $" + balance);
     }
-
-    private String setAcctNumber(){
-        String lastTwoSSN = sSN.substring(sSN.length() - 2, sSN.length());
-        int uniqueID = index;
-//                                              10 to the third power = 1000
-        int randNum = (int) (Math.random() * Math.pow(10, 3));
-        return lastTwoSSN + uniqueID + randNum;
-  }
 
 //  Printing out user's account info
   public void showInfo(){

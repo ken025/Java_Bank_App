@@ -30,16 +30,16 @@ public abstract class Account implements IBaseRate {
 
     private String setAcctNumber(){
         String lastTwoSSN = sSN.substring(sSN.length() - 2, sSN.length());
-        int uniqueID = index;
+        var uniqueID = index;
 //                                              10 to the third power = 1000
-        int randNum = (int) (Math.random() * Math.pow(10, 3));
+        var randNum = (int) (Math.random() * Math.pow(10, 3));
         return lastTwoSSN + uniqueID + randNum;
     }
 
     public abstract void setRate();
 
     public void compound(){
-        double accruedInterest = (balance * (rate/100));
+        var accruedInterest = (balance * (rate/100));
         balance = balance + accruedInterest;
         System.out.println("\nAccrued Interest: $" + accruedInterest);
         printBalance();
